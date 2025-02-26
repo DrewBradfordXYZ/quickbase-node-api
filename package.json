@@ -1,6 +1,6 @@
 {
   "name": "quickbase-api-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for interacting with the QuickBase REST API.",
   "main": "dist/quickbase-node-api.es.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "release": "standard-version"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
