@@ -1,15 +1,22 @@
-import { QuickBase } from 'quickbase';
-import { QuickBaseResponseGetFields } from 'quickbase';
+import { QuickBaseResponseGetApp } from "quickbase";
 
-export declare const apiRequest: <T>(dbid: string, requestFn: (quickbase: QuickBase) => Promise<T>) => Promise<T>;
-
-export declare function getFields(params: GetFieldsParams): Promise<QuickBaseResponseGetFields>;
-
-export declare interface GetFieldsParams {
-    tableId: string;
-    includeFieldPerms?: boolean;
+export interface QuickBaseClientOptions {
+  realm: string;
+  dbid: string;
+  userToken?: string;
+  mode?: string;
 }
 
-export declare const quickbaseClient: (dbid: string) => Promise<QuickBase>;
+export interface GetFieldsParams {
+  tableId: string;
+  includeFieldPerms?: boolean;
+}
 
-export { }
+export declare class QuickBaseClient {
+  private options: QuickBaseClientOptions;
+  private quickbase: any;
+  private tokenKey: string;
+  private constructor(options: QuickBaseClientOptions);
+  static initialize(options: QuickBaseClientOptions): Promise<QuickBaseClient>;
+  getApp(appId: string): Promise<QuickBaseResponseGetApp>;
+}

@@ -15,8 +15,8 @@ export default defineConfig({
     outDir: "dist",
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "quickbase-node-api",
-      fileName: (format) => `quickbase-node-api.${format}.js`,
+      name: "QuickbaseNodeApi",
+      fileName: (format) => `index.${format}.js`,
       formats: ["es"],
     },
     rollupOptions: {
